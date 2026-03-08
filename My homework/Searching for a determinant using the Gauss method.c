@@ -17,8 +17,10 @@ double** create_and_init_matrix(int size_of_matrix) {
     return matrix;
 }
 
-void making_the_matrix_triangular(double** matrix) {
-    
+void making_the_matrix_triangular(int size_of_matrix, double** matrix) {
+    for (int i = 1; i < size_of_matrix; i++) {
+        
+    }
 }
 
 int main() {
