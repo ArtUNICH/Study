@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 double** create_and_init_matrix(int size_of_matrix) {
     double** matrix = (double**)malloc(size_of_matrix * sizeof(double*));
@@ -55,7 +56,7 @@ double rearrange_lines_n_and_m_in_the_matrix(double** matrix, int size_of_matrix
 double making_the_matrix_triangular(double** matrix, int size_of_matrix) {
     double matrix_multiplier_for_the_determinant = 1;
     int j = 0;
-    for (int i = 0, j = 0; i < size_of_matrix && j < size_of_matrix; i++; j++) {
+    for (int i = 0, j = 0; i < size_of_matrix && j < size_of_matrix; i++, j++) {
         if (matrix[i][j] == 0) {
             for (int next = i + 1; next < size_of_matrix; next++) {
                 if (matrix[next][j] != 0) {
@@ -74,6 +75,7 @@ double making_the_matrix_triangular(double** matrix, int size_of_matrix) {
             }
         }
     }
+
     return matrix_multiplier_for_the_determinant;
 }
 
@@ -83,7 +85,11 @@ double calculate_the_determinant(double** matrix, int size_of_matrix) {
     for (int i = 0; i < size_of_matrix; i++) {
         result *= matrix[i][i];
     }
-    return result * matrix_multiplier_for_the_determinant;
+    result *= matrix_multiplier_for_the_determinant;
+    if (fabs(result) < 1e-12) {
+        result = 0.0;
+    }
+    return result;
 }
 
 int main() {
