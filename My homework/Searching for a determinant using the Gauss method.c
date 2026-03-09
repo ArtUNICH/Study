@@ -64,10 +64,10 @@ double making_the_matrix_triangular(double** matrix, int size_of_matrix) {
                 }
             }
         }
-        if (matrix[i][j] == 0) {
+        if (matrix[i][j] != 0) {
             for (int next = i + 1; next < size_of_matrix; next++) {
                 if (matrix[next][j] != 0) {
-                    matrix_multiplier_for_the_determinant *= multiply_n_string_of_the_matrix_by_a_number_X(matrix, size_of_matrix, next + 1, -matrix[i][j]/matrix[next][j]);
+                    matrix_multiplier_for_the_determinant *= multiply_n_string_of_the_matrix_by_a_number_X(matrix, size_of_matrix, next + 1, -(1/matrix[next][j])*matrix[i][j]);
                     matrix_multiplier_for_the_determinant *= adding_n_string_to_m_string_of_the_matrix(matrix, size_of_matrix, i + 1, next + 1);
                 }
             }
