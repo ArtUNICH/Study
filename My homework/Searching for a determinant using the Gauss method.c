@@ -55,12 +55,12 @@ double rearrange_lines_n_and_m_in_the_matrix(double** matrix, int size_of_matrix
 double making_the_matrix_triangular(double** matrix, int size_of_matrix) {
     double matrix_multiplier_for_the_determinant = 1;
     int j = 0;
-    for (int i = 0; i < size_of_matrix; i++) {
+    for (int i = 0, j = 0; i < size_of_matrix && j < size_of_matrix; i++; j++) {
         if (matrix[i][j] == 0) {
             for (int next = i + 1; next < size_of_matrix; next++) {
                 if (matrix[next][j] != 0) {
                     matrix_multiplier_for_the_determinant *= rearrange_lines_n_and_m_in_the_matrix(matrix, size_of_matrix, i + 1, next + 1);
-                    next = size_of_matrix; //exit from for cycle
+                    next = size_of_matrix + 1; //exit from for cycle
                 }
             }
         }
@@ -73,7 +73,6 @@ double making_the_matrix_triangular(double** matrix, int size_of_matrix) {
                 }
             }
         }
-        j++;
     }
     return matrix_multiplier_for_the_determinant;
 }
