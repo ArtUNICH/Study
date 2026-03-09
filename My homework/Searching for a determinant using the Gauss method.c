@@ -97,6 +97,6 @@ int main() {
     scanf("%d", &size_of_matrix);
     double** matrix = create_and_init_matrix(size_of_matrix);
     double determinant = calculate_the_determinant(matrix, size_of_matrix);
-    printf("%lf\n", determinant);
+    printf("Determinant = %lf\n", determinant);
     return 0;
 }
