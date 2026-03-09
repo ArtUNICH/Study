@@ -20,7 +20,7 @@ double** create_and_init_matrix(int size_of_matrix) {
 double multiply_n_string_of_the_matrix_by_a_number_X(double** matrix, int size_of_matrix, int n, double X) {
     if (X == 0 || n > size_of_matrix || n < 1) {
         printf("Invalid input values!\n");
-        return;
+        return 1.0;
     }
     for (int i = 0; i < size_of_matrix; i++) {
         matrix[n - 1][i] = X * matrix[n - 1][i];
@@ -73,6 +73,7 @@ double making_the_matrix_triangular(double** matrix, int size_of_matrix) {
                 }
             }
         }
+        j++;
     }
     return matrix_multiplier_for_the_determinant;
 }
