@@ -33,7 +33,6 @@ void write_png(const char* filename, const unsigned char* image, unsigned width,
   free(png);
 }
 
-
 // вариант огрубления серого цвета в ЧБ 
 void contrast(unsigned char *col, int bw_size)
 { 
